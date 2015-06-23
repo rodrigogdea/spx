@@ -15,7 +15,7 @@ angular.module('spxApp')
     if($routeParams.id){
         $scope.orden = ordenes[$routeParams.id];
     }else{
-        $scope.orden = {};
+        $scope.orden = { 'fecha': new Date(), 'estado': 'En progreso...' };
     }
     
     $scope.update = function(id) {

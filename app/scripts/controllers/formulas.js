@@ -31,19 +31,20 @@ angular.module('spxApp')
     };
     
     $scope.openAddFase = function() {
-        $scope.selectedFases = [];
+        $scope.selectedFase = null;
         ngDialog.open({ template: 'addFaseDialog', scope: $scope });
         
     };
     
     $scope.selectFase = function(faseId){
-        $scope.selectedFases.push($scope.fases[faseId]);
-        console.log($scope.selectedFases);
+        
+        $scope.selectedFase = $scope.fases[faseId];
     };
     
     $scope.endSelection = function(){
-        $scope.formula.fases = $scope.selectedFases;
-        console.log($scope.formula.fases);
+        if($scope.selectedFase != null){
+            $scope.formula.fases.push($scope.selectedFase);
+        }
         return true;
     };
     
